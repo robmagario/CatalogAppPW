@@ -1,0 +1,1 @@
+2015-07-31 18:03:40	admin	http://127.0.0.1/admin/setup/template/removeFields	Deleted field "images" data in 0 row(s) from 0 page(s). [page-by-page]

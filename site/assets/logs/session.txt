@@ -1,0 +1,7 @@
+2015-07-31 16:57:03	admin	http://127.0.0.1/admin/login/	Successful login for 'admin'
+2015-07-31 17:40:45	?	?	User 'admin' - Error: Session fingerprint changed (IP address or useragent) (IP: 127.0.0.1)
+2015-07-31 17:41:10	admin	http://127.0.0.1/admin/login/	Successful login for 'admin'
+2015-07-31 17:41:27	?	?	User 'admin' - Error: Session fingerprint changed (IP address or useragent) (IP: 127.0.0.1)
+2015-07-31 17:46:58	admin	http://127.0.0.1/admin/login/	Successful login for 'admin'
+2015-07-31 17:48:10	?	?	User 'admin' - Error: Session fingerprint changed (IP address or useragent) (IP: 127.0.0.1)
+2015-07-31 17:53:51	admin	http://127.0.0.1/admin/login/	Successful login for 'admin'
