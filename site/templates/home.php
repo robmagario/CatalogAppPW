@@ -1,32 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title><?php echo $page->title; ?></title>
-		<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/main.css" />
-	</head>
-	<body>
-		<h1><?php echo $page->title; ?></h1>
-		<ul>
-		<?php
-			$categories = $pages->find("template=category");
-			foreach($categories as $category) {
-			   echo "<li>";
-			   echo "{$category->title} <br />";
-			   if ($category->icon) {
-				   $thumb = $category->icon->size(100, 100);
-				   echo "<img src='{$thumb->url}'>";
-			   }
-			   echo "</li>";
-			   
-			   echo "<ul>";
-			   $sections = $category->children;
-			   foreach ($sections as $section) {
-					echo "<li><a href='{$section->url}'>{$section->title}</a></li>";
-			   }
-			   echo "</ul>";
-			}
-			?>
-		</ul>
-	</body>
-</html>
+<?php
+require_once 'helpers/Rest.php';
+
+$code = 200;
+$output = null;
+$header = Rest\Header::mimeType('json');
+
+if (Rest\Request::is('get')) {
+	$categories = $pages->find("template=category");
+	$output = array();
+	
+	foreach($categories as $category) {
+	   $entry = array();
+	   $entry['title'] = $category->title;
+	   if ($category->icon) {
+		   $thumb = $category->icon->size(512, auto);
+		   $entry['thumbnail'] = $_SERVER['HTTP_HOST'] . $thumb->url;
+	   }
+	   
+	   $sections = array();
+	   foreach ($category->children as $section) {
+		   $section_entry = array();
+		   $section_entry['title'] = $section->title;
+		   $section_entry['page'] = $section->page_number;
+		   $section_entry['url'] = $_SERVER['HTTP_HOST'] . $section->url;
+		   array_push($sections, $section_entry);
+	   }
+	   $entry['sections'] = $sections;
+	   array_push($output, $entry);
+	}
+}
+
+http_response_code($code);
+header($header);
+echo json_encode($output);
+?>

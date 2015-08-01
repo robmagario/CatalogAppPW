@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title><?php echo $page->title; ?></title>
-		<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/main.css" />
-	</head>
-	<body>
-		<h1><?php echo $page->title; ?></h1>
-		<div><?php echo $page->content; ?></div>
-		<a href='/'>Back</a>
-	</body>
-</html>
+<?php
+require_once 'helpers/Rest.php';
+
+$code = 200;
+$output = null;
+$header = Rest\Header::mimeType('json');
+
+if (Rest\Request::is('get')) {
+	$output = array();
+	$output['title'] = $page->title;
+	$output['page'] = $page->page_number;
+	$output['content'] = $page->content;
+}
+
+http_response_code($code);
+header($header);
+echo json_encode($output);
+?>

@@ -13,3 +13,5 @@
 2015-07-31 17:45:34	guest	http://127.0.0.1/esc-hot-rolled-sheet-piles/z-hot-rolled-sheet-piles/	Parse Error: 	syntax error, unexpected '{' (line 10 of C:\wamp\www\site\templates\section.php)
 2015-07-31 17:45:35	guest	http://127.0.0.1/esc-hot-rolled-sheet-piles/z-hot-rolled-sheet-piles/	Parse Error: 	syntax error, unexpected '{' (line 10 of C:\wamp\www\site\templates\section.php)
 2015-07-31 17:50:49	guest	http://127.0.0.1/esc-hot-rolled-sheet-piles/z-hot-rolled-sheet-piles/	Parse Error: 	syntax error, unexpected '<' (line 12 of C:\wamp\www\site\templates\section.php)
+2015-08-01 16:20:35	admin	http://127.0.0.1/	Parse Error: 	syntax error, unexpected '=>' (T_DOUBLE_ARROW) (line 13 of C:\wamp\www\site\templates\home.php)
+2015-08-01 16:24:37	admin	http://127.0.0.1/	Error: 	Call to undefined function push() (line 26 of C:\wamp\www\site\templates\home.php)
