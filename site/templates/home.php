@@ -22,7 +22,9 @@ if (Rest\Request::is('get')) {
 		   $section_entry = array();
 		   $section_entry['title'] = $section->title;
 		   $section_entry['page'] = $section->page_number;
+           $section_entry['images'] = $_SERVER['HTTP_HOST']. $section->images->url;
 		   $section_entry['url'] = $_SERVER['HTTP_HOST'] . $section->url;
+
 		   array_push($sections, $section_entry);
 	   }
 	   $entry['sections'] = $sections;
