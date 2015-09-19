@@ -1,3 +1,4 @@
+
 <?php
 require_once 'helpers/Rest.php';
 
@@ -8,6 +9,7 @@ $header = Rest\Header::mimeType('json');
 if (Rest\Request::is('get')) {
         $output = array();
         $output['title'] = $page->title;
+        $output['diagram_description'] = $page->diagram_description;
         $output['diagram'] = $page->section_diagram->first()->url;
         $output['headerImage'] = $page->images->first()->url;
         $tables = array();
@@ -21,3 +23,4 @@ http_response_code($code);
 header($header);
 echo json_encode($output);
 ?>
+
