@@ -12,6 +12,7 @@ if (Rest\Request::is('get')) {
         $output['diagram_description'] = $page->diagram_description;
         $output['diagram'] = $page->section_diagram->first()->url;
         $output['headerImage'] = $page->images->first()->url;
+        $output['section_fullsize_picture'] = $page->section_fullsize_picture->first()->url;
         $tables = array();
         foreach ($page->table_repeater as $table) {
                 array_push($tables, $table->content);
